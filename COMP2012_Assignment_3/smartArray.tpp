@@ -118,9 +118,9 @@ template <typename KeyType, typename ValueType>
 void SmartArray<KeyType, ValueType>::print(ostream& os) const {
     for (int i = 0; i < this->size; i += 1) {
         // array already in order
-        cout << '(' << this->data[i]->key << ',' << this->data[i]->value << ')';
+        os << '(' << this->data[i]->key << ',' << this->data[i]->value << ')';
     }
-    cout << endl;
+    os << endl;
 }
 
 template <typename KeyType, typename ValueType>
