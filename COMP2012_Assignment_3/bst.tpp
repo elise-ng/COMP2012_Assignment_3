@@ -7,8 +7,8 @@ BST<KeyType, ValueType>::BST(const BST& another) {
     if (another.isEmpty()) {
         return;
     }
-    BST<KeyType, ValueType> leftCopy = BST(another.leftSubtree());
-    BST<KeyType, ValueType> rightCopy = BST(another.rightSubtree());
+    BST<KeyType, ValueType>&& leftCopy = BST(another.leftSubtree());
+    BST<KeyType, ValueType>&& rightCopy = BST(another.rightSubtree());
     this->root = new BSTNode<KeyType, ValueType>(another.root->data.key, another.root->data.value);
     this->root->left = move(leftCopy);
     leftCopy.root = nullptr;
