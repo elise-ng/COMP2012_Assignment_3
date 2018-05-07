@@ -120,7 +120,6 @@ void SmartArray<KeyType, ValueType>::print(ostream& os) const {
         // array already in order
         os << '(' << this->data[i]->key << ',' << this->data[i]->value << ')';
     }
-    os << endl;
 }
 
 template <typename KeyType, typename ValueType>

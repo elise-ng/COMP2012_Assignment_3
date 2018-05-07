@@ -183,5 +183,4 @@ void BST<KeyType, ValueType>::print(std::ostream &os) const {
         const Pair<KeyType, ValueType>* data = (*this)[i];
         os << '(' << data->key << ',' << data->value << ')';
     }
-    os << endl;
 }
