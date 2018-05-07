@@ -12,7 +12,7 @@ HashingVault<KeyType, ValueType>::~HashingVault() {
         delete this->table[i];
         this->table[i] = nullptr;
     }
-    delete[] this->table;
+    delete [] this->table;
     this->table = nullptr;
 }
 
@@ -48,6 +48,6 @@ void HashingVault<KeyType, ValueType>::rehash(int size, Container<KeyType, Value
         delete oldTable[i];
         oldTable[i] = nullptr;
     }
-    delete[] oldTable;
+    delete [] oldTable;
     oldTable = nullptr;
 }
