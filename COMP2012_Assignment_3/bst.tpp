@@ -3,13 +3,18 @@
 //just write your BST implementation here right away
 
 template <typename KeyType, typename ValueType>
-BST<KeyType, ValueType>::BST(const BST& another) : root(nullptr), size(0) {
-    if (another.root == nullptr) {
+BST<KeyType, ValueType>::BST(const BST& another) {
+    if (another.isEmpty()) {
         return;
     }
+    BST<KeyType, ValueType> leftCopy = BST(another.leftSubtree());
+    BST<KeyType, ValueType> rightCopy = BST(another.rightSubtree());
     this->root = new BSTNode<KeyType, ValueType>(another.root->data.key, another.root->data.value);
-    this->root->left = BST<KeyType, ValueType>(another.root->left);
-    this->root->right = BST<KeyType, ValueType>(another.root->right);
+    this->root->left = move(leftCopy);
+    leftCopy.root = nullptr;
+    this->root->right = move(rightCopy);
+    rightCopy.root = nullptr;
+    this->size = another.size;
 }
 
 template <typename KeyType, typename ValueType>
@@ -91,15 +96,17 @@ bool BST<KeyType, ValueType>::remove(KeyType key) {
             this->root->data.key = replacement->root->data.key;
             this->root->data.value = replacement->root->data.value;
             this->root->right.remove(replacement->root->data.key);
+            this->size -= 1;
             return true;
         } else {
             // node has 1 child, replace with only child
             BSTNode<KeyType, ValueType>* temp = this->root;
             this->root = this->rightSubtree().isEmpty() ? this->root->left.root : this->root->right.root;
-            this->size = 1;
+            this->size -= 1;
             temp->left.root = nullptr;
             temp->right.root = nullptr;
             delete temp;
+            temp = nullptr;
             return true;
         }
     } else if (key < this->root->data.key) {
