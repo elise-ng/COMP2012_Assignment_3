@@ -24,7 +24,7 @@
 
 /* Begin PBXFileReference section */
 		D962222A20A05576004A80AC /* COMP2012_Assignment_3 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = COMP2012_Assignment_3; sourceTree = BUILT_PRODUCTS_DIR; };
-		D962223420A0559A004A80AC /* hashingVault.tpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = hashingVault.tpp; sourceTree = "<group>"; };
+		D962223420A0559A004A80AC /* hashingVault.tpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = hashingVault.tpp; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.cpp; };
 		D962223520A0559A004A80AC /* pair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pair.h; sourceTree = "<group>"; };
 		D962223620A0559A004A80AC /* bst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bst.h; sourceTree = "<group>"; };
 		D962223720A0559A004A80AC /* bst.tpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.h; fileEncoding = 4; path = bst.tpp; sourceTree = "<group>"; };
