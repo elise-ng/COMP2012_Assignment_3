@@ -3,7 +3,7 @@
 //just write your BST implementation here right away
 
 template <typename KeyType, typename ValueType>
-BST<KeyType, ValueType>::BST(const BST& another) : root(nullptr), size(another.size) {
+BST<KeyType, ValueType>::BST(const BST& another) : root(nullptr), size(0) {
     if (another.root == nullptr) {
         return;
     }
@@ -94,10 +94,12 @@ bool BST<KeyType, ValueType>::remove(KeyType key) {
             return true;
         } else {
             // node has 1 child, replace with only child
-            const BST<KeyType, ValueType> replacement = this->rightSubtree().isEmpty() ? this->leftSubtree() : this->rightSubtree();
-            delete this->root;
-            this->root = replacement.root;
+            BSTNode<KeyType, ValueType>* temp = this->root;
+            this->root = this->rightSubtree().isEmpty() ? this->root->left.root : this->root->right.root;
             this->size = 1;
+            temp->left.root = nullptr;
+            temp->right.root = nullptr;
+            delete temp;
             return true;
         }
     } else if (key < this->root->data.key) {
