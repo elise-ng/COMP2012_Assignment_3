@@ -40,7 +40,7 @@ void HashingVault<KeyType, ValueType>::rehash(int size, Container<KeyType, Value
     this->fun = fun;
     for (int i = 0; i < oldSize; i += 1) {
         for (int j = 0; j < oldTable[i]->count(); j += 0) {
-            Pair<KeyType, ValueType>* pair = *(oldTable[i])[j];
+            const Pair<KeyType, ValueType>* pair = (*oldTable[i])[j];
             this->add(pair->key, pair->value);
             oldTable[i]->remove(pair->key);
             pair = nullptr;
